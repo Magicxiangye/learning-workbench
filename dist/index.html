@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123b36">
+<title>学习工作台</title>
+<meta name="description" content="阅读专业书籍课程，记录学习进度与笔记">
+<link rel="stylesheet" href="style.css">
+<script src="courses.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="top"><div class="brand"><span class="seal" aria-hidden="true"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55"><path d="M12 6c-3-2-5-2-9-2v14c4 0 6 0 9 2 3-2 5-2 9-2V4c-4 0-6 0-9 2v14"/><path d="M6 8h3m-3 4h3m6-4h3m-3 4h3"/></svg></span>学习工作台</div><button class="plain" id="overview" type="button">学习总览</button></header>
+<div class="shell">
+<aside class="library" aria-label="书架">
+<div class="library-title">我的书架</div>
+<div id="books"></div>
+<div class="storage"><span aria-hidden="true">◉</span> 进度与笔记保存在当前浏览器</div>
+</aside>
+<main id="main">
+<div class="hero"><div class="hero-copy"><p class="eyebrow" id="subject"></p><h1 id="book-title"></h1><div class="hero-meta"><span id="book-count"></span><progress id="book-progress" aria-label="本书完成进度"></progress><span id="book-percent"></span></div></div><div class="hero-art" aria-hidden="true"><svg viewBox="0 0 310 205" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="190" cy="100" r="93"/><circle cx="190" cy="100" r="71"/><path d="M14 158h282m-63-127v144m-88-157v159" stroke-dasharray="3 6"/><path d="M78 116c34-14 66-6 91 14 27-20 60-28 94-14v44c-34-13-67-5-94 15-25-20-57-28-91-15v-44Z" fill="#1c5147"/><path d="M96 78c30-6 54 5 73 25 21-20 46-31 76-25v64c-30-6-55 5-76 25-19-20-43-31-73-25V78Z" fill="#2e6b59"/><path d="M169 103v64m-61-72c18-2 34 4 48 15m-48 0c18-2 34 4 48 15m-48 0c18-2 34 4 48 15m29-30c14-11 30-17 48-15m-48 30c14-11 30-17 48-15m-48 30c14-11 30-17 48-15"/></svg></div></div>
+<div class="work">
+<section class="reader" aria-label="课程阅读">
+<div class="reader-top"><div><p id="lesson-label" class="eyebrow"></p><h2 id="lesson-title" tabindex="-1"></h2></div><button id="complete" type="button"></button></div>
+<div id="article" class="article"></div>
+<div id="lesson-nav" class="lesson-nav"></div>
+</section>
+<aside class="tools" aria-label="学习工具">
+<section class="panel"><h2>课程目录</h2><label class="sr" for="filter">筛选课程进度</label><select id="filter"><option value="all">全部课程</option><option value="unread">待读</option><option value="reading">学习中</option><option value="read">已读</option><option value="discussed">已对谈</option></select><nav id="lessons" aria-label="章节"></nav></section>
+<section class="panel" id="note-panel"><h2><label for="notes">本课笔记</label></h2><textarea id="notes" rows="5" placeholder="记下你的理解或想对谈的问题…"></textarea><p id="note-status" aria-live="polite">自动保存到当前浏览器</p><label for="status">学习状态</label><select id="status"><option value="unread">待读</option><option value="reading">学习中</option><option value="read">已读</option><option value="discussed">已对谈</option></select></section>
+<section class="panel outline-panel" id="outline-panel"><h2>本课小节</h2><nav id="outline" aria-label="小节"></nav></section>
+</aside>
+</div></main></div>
+<dialog id="summary"><div class="dialog-head"><h2>学习总览</h2><form method="dialog"><button class="plain">关闭</button></form></div><div id="summary-body"></div></dialog>
+<div id="message" class="message" role="status" hidden></div>
+</body></html>
